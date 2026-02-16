@@ -1,0 +1,22 @@
+.ORIG 0
+MOV R6 #99
+MOV R7 #99
+AND R0 R0 #0
+AND R1 R1 #0
+AND R2 R2 #0
+ADD R0 R0 R6
+ADD R1 R1 R7
+CMP R1 #0
+B EQ end
+mult:
+AND R5 R1 #1
+CMP R5 #1
+B NE norm
+ADD R2 R2 R0
+norm:
+LSR R1 R1 #1
+LSL R0 R0 #1
+CMP R1 #0
+B GT mult
+end:
+HALT

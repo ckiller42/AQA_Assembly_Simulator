@@ -1,0 +1,16 @@
+.ORIG 0
+MOV R6 #0
+MOV R7 #0
+AND R0 R0 #0
+CMP R7 #0
+B EQ set_zero
+div:
+CMP R6 R7
+B LT end b 
+SUB R6 R6 R7
+ADD R0 R0 #1
+B div
+set_zero:
+SUB R0 R0 #1
+end:
+HALT
